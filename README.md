@@ -15,7 +15,7 @@ Simple usage:
 import React from 'react';
 import Sticker from 'Stickyfill';
 
-const SomeComponent = React.createClass({
+class SomeComponent extends React.Component {
 	render(){
 		return (
 			<div>{/* Parent Element. */}
@@ -25,7 +25,7 @@ const SomeComponent = React.createClass({
 			</div>
 		);
 	}
-});
+}
 ```
 
 *Parent Element* should have height greater than *Sticky Element*. *Sticky Element* should have style `position: sticky` and `top: {some value}`.

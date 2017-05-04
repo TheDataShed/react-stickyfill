@@ -2,40 +2,37 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Sticker from '../../lib/';
 
-const Comp = React.createClass({
+class Comp extends React.Component {
 	render(){
 		return (<div className={this.props.className}>Sticky Component </div>)
 	}
-});
+}
 
-const App = React.createClass({
-	getDefaultProps(){
-		return {
-			media: "(max-width: 767px) and (orientation: portrait), (max-width: 1023px) and (orientation: landscape)"
-		}
-	},
-	mediaMatch(media){
-		return window.matchMedia(media).matches;
-	},
-	getInitialState(){
-		return {
+class App extends React.Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
 			stickerActive: false,
 			height: false
-		}
-	},
+		};
+	}
+	mediaMatch(media){
+		return window.matchMedia(media).matches;
+	}
 	changeState(){
 		this.setState({
 			stickerActive: this.mediaMatch(this.props.media),
 			height: this.child2.offsetHeight
 		});
-	},
+	}
 	componentDidMount(){
 		window.addEventListener('resize', this.changeState);
 		this.changeState();
-	},
+	}
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.changeState);
-	},
+	}
 	render(){
 		return (
 			<div className="root">
@@ -71,7 +68,11 @@ const App = React.createClass({
 			</div>
 		);
 	}
-});
+}
+
+App.defaultProps = {
+	media: "(max-width: 767px) and (orientation: portrait), (max-width: 1023px) and (orientation: landscape)"
+};
 
 if(typeof document !== 'undefined') {
 	ReactDOM.render(

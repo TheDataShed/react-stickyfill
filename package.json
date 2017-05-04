@@ -1,6 +1,6 @@
 {
   "name": "react-stickyfill",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "React wrapper for Stickyfill library",
   "main": "lib/index.js",
   "scripts": {
@@ -49,13 +49,14 @@
     "eslint-loader": "^1.5.0",
     "eslint-plugin-react": "^6.0.0",
     "postcss-loader": "^0.9.1",
-    "webpack": "^1.13.1",
-    "react-dom": "^15.2.1"
+    "prop-types": "^15.5.8",
+    "react-dom": "^15.5.4",
+    "webpack": "^1.13.1"
   },
   "dependencies": {
     "Stickyfill": "git+https://github.com/seleckis/stickyfill.git"
   },
   "peerDependencies": {
-    "react": "^15.2.1"
+    "react": "^15.5.4"
   }
 }
